@@ -3,7 +3,7 @@ module LuhnValidator
   # arguments: none
   # assumes: a local String called 'number' exists
   # returns: true/false whether last digit is correct
-  def validate_checksum(number)
+  def validate_checksum
     nums_a = number.to_s.chars.map(&:to_i).reverse
     valid=nums_a.map.with_index{|n,i| i.odd? ? n*2>9 ? n*2-9 : n*2 :n}.reduce(0, :+)
     (valid%10==0)
